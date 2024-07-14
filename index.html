@@ -113,20 +113,34 @@
             console.log('Instance created', window.Telegram.WebApp);
             window.unityInstance = unityInstance;
 
-            window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+            if (window && window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.ready();
+            }
 
-          loadingBar.style.display = "none";
+            if (window && window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.expand();
+            }
+
+            if (window.Telegram.WebApp) {
+                window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+            }
+            loadingBar.style.display = "none";
+
           //fullscreenButton.onclick = () => {
             //unityInstance.SetFullscreen(1);
           //};
+
         }).catch((message) => {
           alert(message);
         });
       };
-      document.body.appendChild(script);
+
+        document.body.appendChild(script);
+
     </script>
     <script>
         if (window.Telegram.WebApp) {
+
             window.Telegram.WebApp.onEvent('qrTextReceived', async (obj) => {
                 console.log('#qrTextReceived', obj)
                 if (window.unityInstance) {
