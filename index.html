@@ -1,14 +1,40 @@
 ﻿<!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | telegram-game</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!--Firestore-->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+    <script>// Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDC2DG2-d2bHhcBKyxCrr4ktBtwQdhKyD8",
+            authDomain: "telegram-app-42632.firebaseapp.com",
+            projectId: "telegram-app-42632",
+            storageBucket: "telegram-app-42632.appspot.com",
+            messagingSenderId: "639225531212",
+            appId: "1:639225531212:web:0bf6548736a4f80b359de9",
+            measurementId: "G-4ZDQLCG0TS"
+        };
 
-  </head>
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+
+        // Initialize Firestore
+        const db = firebase.firestore();
+        const analytics = getAnalytics(app);
+
+    </script>
+
+
+
+
+
+</head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=400 height=800></canvas>
@@ -26,13 +52,16 @@
       </div>-->
     </div>
     <script>
+
+        
+
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
-        var unityInstance;
+      var unityInstance;
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.
