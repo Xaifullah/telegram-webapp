@@ -6,10 +6,10 @@
     <title>telegram-game</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
-    <script>// Your Firebase configuration
+    <!--<script>// Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDC2DG2-d2bHhcBKyxCrr4ktBtwQdhKyD8",
             authDomain: "telegram-app-42632.firebaseapp.com",
@@ -27,10 +27,12 @@
         // Initialize Firestore
 
         const db = firebase.firestore();
-        //const analytics = getAnalytics(app);</script>
+        //const analytics = getAnalytics(app);
+
+    </script>-->
 
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 
 
 
@@ -52,7 +54,9 @@
           <div id="unity-build-title">telegram-game</div>
         </div>-->
     </div>
-    <script>var container = document.querySelector("#unity-container");
+    <script>
+        const db;
+        var container = document.querySelector("#unity-container");
         var canvas = document.querySelector("#unity-canvas");
         var loadingBar = document.querySelector("#unity-loading-bar");
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
