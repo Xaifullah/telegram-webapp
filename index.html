@@ -151,9 +151,11 @@
                     window.Telegram.WebApp.expand();
                 }
 
-                if (window.Telegram.WebApp) {
-                    window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-                }
+                //if (window.Telegram.WebApp) {
+                   // window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
+            //}
+
+
                 loadingBar.style.display = "none";
 
                 //fullscreenButton.onclick = () => {
